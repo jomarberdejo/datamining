@@ -1,19 +1,6 @@
-    // Function to convert the table data to JSON format and trigger download
+// Function to convert the filtered data to JSON format and trigger download
 function downloadJSON() {
-    const table = document.querySelector('table');
-    const rows = table.querySelectorAll('tr');
-    const jsonData = [];
-
-    // Extract data from each row and format it as JSON objects
-    rows.forEach((row) => {
-        const rowData = {};
-        const cells = row.querySelectorAll('td, th');
-        cells.forEach((cell, index) => {
-            const header = table.querySelector('thead th:nth-child(' + (index + 1) + ')').textContent;
-            rowData[header] = cell.textContent;
-        });
-        jsonData.push(rowData);
-    });
+    const jsonData = filteredUsers; // Assuming filteredUsers holds your filtered data
 
     // Create a Blob containing the JSON data
     const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
@@ -24,7 +11,7 @@ function downloadJSON() {
     // Create an anchor element to trigger the download
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'user_data.json'; // Set the filename with .json extension
+    a.download = 'filtered_user_data.json'; // Set the filename with .json extension
     a.style.display = 'none';
 
     // Trigger the click event to initiate the download
