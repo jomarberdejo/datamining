@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!--CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- JS  -->
+  <script defer src="js/chart.js"></script>
+  <script defer src="js/logout.js"></script>
+    <script src="js/protected.js"></script>
+ 
+  <title>Dashboard</title>
+</head>
+<body>
+  <header>
+         <nav>
+           <ul>
+        <li>
+         <a href="home.html">Home</a>
+        </li>
+            <li>
+         <a href="#">Dashboard</a>
+        </li>
+         <li>
+           <button class="logout-link">Logout</button>
+         </li>
+           </ul>
+
+
+      </nav>
+    </header>
+    
+    <div class="main-layout">
+          <select id="chartType">
+            <option value="age">Age</option>
+            <option value="gender">Gender</option>
+            <option value="isVerified">Is Verified</option>
+        </select>
+        <canvas id="dataChart"></canvas>
+  
+   </div>
+
+</body>
+</html>

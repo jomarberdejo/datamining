@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Tables</title>
+     <!--CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+      <!--Script Files -->
+     <script defer src="js/script.js"></script>
+    <script defer src="js/download.js"></script>
+    <script defer src="js/logout.js"></script>
+    <script src="js/protected.js"></script>
+  
+          <!--Dependencies -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
+
+    
+
+</head>
+<body>
+    <header>
+         <nav>
+           <ul>
+         <li>
+         <a href="#">Home</a>
+        </li>
+            <li>
+         <a href="chart.html">Dashboard</a>
+        </li>
+         <li>
+           <button class="logout-link">Logout</button>
+         </li>
+           </ul>
+
+
+      </nav>
+    </header>
+   
+     <h2>User's Data</h2>
+    
+     
+      
+      
+    <div class="main-layout">
+      <aside>
+       <div class="filters">
+        <label for="genderFilter">Filter by Gender:</label>
+        <select name="genderFilter" id="genderFilter">
+            <option value="all">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Agender">Agender</option>
+            <option value="Bigender">Bigender</option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Genderfluid">Genderfluid</option>
+        </select>
+        
+        <div class="filter-actions">
+        
+        <label for="ageFilter">Filter by Age:</label>
+        <input type="number" id="ageFilter" min="0">
+        <label for="emailFilter">Filter by Email:</label>
+        <input type="text" id="emailFilter">
+   <div class="verify-filter">
+  <span>Verified: </span>
+  <div class="verify-options">
+    <div class="radio-option">
+      <input type="radio" id="verified" value="true" name="isVerified">
+      <label for="verified">Yes</label>
+    </div>
+    <div class="radio-option">
+      <input type="radio" id="notverified" value="false" name="isVerified">
+      <label for="notverified">No</label>
+    </div>
+  </div>
+</div>
+
+       
+        <button class="clear-filter-btn" id="clearFilters">Clear Filters</button>
+        <button class="download-btn" id="downloadJSON">Download JSON</button>
+        </div>
+        
+       <div class="actions">
+
+        <div class="pagination">
+        <button id="prevPage">Prev</button>
+            <span id="currentPage">Page 1</span>
+            <button id="nextPage">Next</button>
+      </div>
+        
+        
+      </div>
+       </aside>
+        
+        <main class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Verified</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody"></tbody>
+            </table>
+        </main>
+
+    </div>
+
+</body>
+</html>
+

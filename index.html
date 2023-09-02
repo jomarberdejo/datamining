@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="User's Data">
+  <meta name="author" content="Jomar M. Berdejo">
+
+  <!-- css links -->
+
+  <link rel="stylesheet" href="css/login.css">
+
+  
+  <!-- js links -->
+    <script src="js/checklogin.js"></script>
+    <script defer src="js/login.js"></script>
+  
+
+  <!-- dependencies -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+
+  
+  <title>Login</title>
+ 
+ 
+</head>
+
+<body>
+
+
+
+
+
+  <section>
+    <div class="container">
+      <div class="form-container">
+        <form id="login-form" class="form">
+          <h2>Admin Login</h2>
+          <hr>
+          <div class="form-control " id="user-shakes">
+
+            <span class="icons"><img src="../icons/user-icon.png" alt="user-icon"></span>
+            <input 
+            type="text" 
+            id="username" 
+            value= "Admin"
+            placeholder="Username" autocomplete="off">
+          </div>
+          <div class="form-control " id="pass-shakes">
+            <span class="icons"><img src="../icons/pass-icon.png" alt="password-icon"></span>
+
+            <input 
+            type="password" 
+            id="password"
+            value= "EVSUCC"
+            placeholder="Password">
+
+            <img src="../icons/show.png" alt="show-icon" id="toggle-password" onclick="togglePasswordVisibility()"></span>
+          </div>
+
+          <button onclick="validateLogin(event)">Login</button>
+
+
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+
+</body>
+
+</html>
