@@ -6,6 +6,7 @@ let filteredUsers = [];
 
 // DOM elements
 const userTableBody = document.getElementById("userTableBody");
+const nameFilter = document.getElementById("nameFilter");
 const genderFilter = document.getElementById("genderFilter");
 const ageFilter = document.getElementById("ageFilter");
 const emailFilter = document.getElementById("emailFilter");
@@ -77,6 +78,7 @@ async function fetchUserData() {
 }
 
 async function filterUsers() {
+    const nameFilterValue = nameFilter.value;
     const selectedGender = genderFilter.value;
     const ageFilterValue = ageFilter.value;
     const selectedAge = isNaN(ageFilterValue) ? null : parseInt(ageFilterValue);
@@ -86,6 +88,7 @@ async function filterUsers() {
 
     const allConditionsMet = (user) => {
         const genderMatches = selectedGender === 'all' || user.gender === selectedGender;
+        const nameMatches = nameFilterValue === '' || user.first_name.toLowerCase().includes(nameFilterValue.toLowerCase()) || user.last_name.toLowerCase().includes(nameFilterValue.toLowerCase());
         const emailMatches = selectedEmail === '' || user.email.toLowerCase().includes(selectedEmail);
         const verifyMatches = (
             (selectedVerify === null && notSelectedVerify === null) ||
@@ -93,7 +96,7 @@ async function filterUsers() {
             (notSelectedVerify === 'false' && user.isVerified === false)
         );
         const ageMatches = selectedAge === null || user.age.toString().includes(ageFilterValue);
-        return genderMatches && emailMatches && verifyMatches && ageMatches;
+        return genderMatches && nameMatches && emailMatches && verifyMatches && ageMatches;
     };
 
     filteredUsers = (await fetchUserData()).filter(allConditionsMet);
@@ -103,6 +106,7 @@ async function filterUsers() {
 
 // Add event listeners for filter controls
 genderFilter.addEventListener("change", filterUsers);
+nameFilter.addEventListener("input", filterUsers);
 ageFilter.addEventListener("input", filterUsers);
 emailFilter.addEventListener("input", filterUsers);
 verifyFilter.addEventListener('click', filterUsers);
@@ -113,6 +117,7 @@ clearFiltersButton.addEventListener('click', clearFilters);
 
 function clearFilters() {
   genderFilter.value = 'all';
+  nameFilter.value= '';
   ageFilter.value = '';
   emailFilter.value = '';
   verifyFilter.checked = false;
