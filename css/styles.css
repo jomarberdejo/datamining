@@ -133,6 +133,10 @@ input, select {
   color: #fff;
 }
 
+select{
+  background-color: #333;  
+}
+
 /* Radio button styles */
 input[type="radio"] {
   outline: none;
